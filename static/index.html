@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FitConnect AI</title>
+    <link rel="icon" type="image/png" href="/static/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <img src="/static/logo.png" alt="FitConnect AI Logo" class="welcome-logo">
+            <h1 class="glow">FitConnect AI</h1>
+            <p>Your AI-Powered Personal Trainer & Dietitian</p>
+            <button id="btn-google-login" class="btn-primary" style="background-color: #fff; color: #000; display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 auto;">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="24" height="24" alt="Google">
+                Sign in with Google
+            </button>
+        </div>
+
+        <!-- Questionnaire Screen -->
+        <div id="questionnaire-screen" class="screen">
+            <div class="header">
+                <h2>Profile Setup</h2>
+            </div>
+            <div class="scroll-content">
+                <form id="metrics-form">
+                    <div class="input-group">
+                        <label>Basic Metrics (Age, Gender, Height, Weight)</label>
+                        <input type="text" id="input-basic" required placeholder="e.g. 25, Male, 5'10, 180lbs">
+                    </div>
+                    <div class="input-group">
+                        <label>Primary Goal</label>
+                        <input type="text" id="input-goal" required placeholder="e.g. Fat loss, muscle gain">
+                    </div>
+                    <div class="input-group">
+                        <label>Dietary Preferences / Restrictions</label>
+                        <input type="text" id="input-diet" required placeholder="e.g. Vegan, Keto, None">
+                    </div>
+                    <div class="input-group">
+                        <label>Daily Activity Level</label>
+                        <input type="text" id="input-activity" required placeholder="e.g. Sedentary desk job">
+                    </div>
+                    <div class="input-group">
+                        <label>Lifter Experience Level</label>
+                        <select id="input-experience">
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Gym Commitment (# of days)</label>
+                        <input type="text" id="input-days" required placeholder="e.g. 3 days a week, full access">
+                    </div>
+                    <div class="input-group">
+                        <label>Health Conditions / Injuries</label>
+                        <input type="text" id="input-health" required placeholder="e.g. None, bad knees">
+                    </div>
+                    <button type="submit" class="btn-primary" id="btn-generate">Generate Plan</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen">
+            <div class="spinner"></div>
+            <h3>Analyzing Profile...</h3>
+            <p>Crafting your custom plan.</p>
+        </div>
+
+        <!-- Chat / Plan Screen -->
+        <div id="chat-screen" class="screen">
+            <div class="header" style="display: flex; align-items: center; justify-content: space-between;">
+                <h2 style="flex:1; text-align:center;">Your Plan & AI Chat</h2>
+                <button id="btn-signout" style="background:none; border:1px solid #30363d; color:#8b949e; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:0.8rem; white-space:nowrap;">Sign Out</button>
+            </div>
+            <div class="chat-container" id="chat-box">
+                <!-- Messages go here -->
+            </div>
+            <div class="input-area">
+                <input type="text" id="chat-input" placeholder="Ask AI about your plan...">
+                <button id="btn-send" class="btn-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/static/js/script.js"></script>
+</body>
+</html>
