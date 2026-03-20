@@ -8,7 +8,7 @@ except ImportError:
     exit(1)
 
 # Ensure the API key is accessible for genai.Client()
-api_key = os.environ.get("GEMINI_API_KEY", "AIzaSyBXfMy_Uhye8IQE7C8uSUBb7Sl6yQEWXMM")
+api_key = os.environ.get("GEMINI_API_KEY")
 
 app = Flask(__name__, static_folder='static')
 app.secret_key = "super_secret_fitness_key_for_sessions"
